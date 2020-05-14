@@ -11,13 +11,12 @@
 </template>
 
 <script>
-export default {
-    data() {
-        return {
-
+export default {    
+    computed: {
+        products() {
+            return this.$store.state.products;
         }
     },
-    props: ['products']
 }
 </script>
 
