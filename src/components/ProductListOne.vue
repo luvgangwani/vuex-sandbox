@@ -7,6 +7,9 @@
                 <p>${{ product.price }}</p>
             </li>
         </ul>
+
+        <button v-on:click.prevent="reducePrice">Reduce Price</button>
+
     </div>
 </template>
 
@@ -19,6 +22,12 @@ export default {
 
         saleProducts() {
             return this.$store.getters.saleProducts;
+        }
+    },
+
+    methods: {
+        reducePrice: function() {
+            this.$store.commit('reducePrice');
         }
     },
 }

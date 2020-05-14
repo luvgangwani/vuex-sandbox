@@ -4,6 +4,7 @@ import Vuex from "vuex";
 Vue.use(Vuex);
 
 export const store = new Vuex.Store({
+    strict: true, // prevents changing data from external methods (not mutations)
     state: {
         products: [
             {
@@ -35,6 +36,14 @@ export const store = new Vuex.Store({
             });
 
             return saleProducts;
+        }
+    },
+
+    mutations: {
+        reducePrice: state => {
+            state.products.forEach(product => {
+                product.price -= 1;
+            });
         }
     }
 });
